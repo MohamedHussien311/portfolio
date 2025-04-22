@@ -1,4 +1,3 @@
-
 import Navbar from "@/components/Navbar";
 import HeroHeader from "@/components/HeroHeader";
 import AboutMe from "@/components/AboutMe";

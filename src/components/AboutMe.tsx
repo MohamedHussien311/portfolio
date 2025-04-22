@@ -6,7 +6,7 @@ const About = () => (
       {/* الصورة */}
       <div className="w-370 h-320 rounded-full overflow-hidden shadow-lg border-4 border-primary">
         <img
-          src="/personalPhoto.png" // استبدلها بمسار الصورة بتاعتك
+          src={`${import.meta.env.BASE_URL}personalPhoto.png`}
           alt="Mohamed Hussein"
           className="w-full h-full object-cover"
         />

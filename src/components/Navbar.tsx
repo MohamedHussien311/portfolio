@@ -1,6 +1,5 @@
-
 import { ArrowDown } from "lucide-react";
-import React from "react";
+import React, { useState } from "react";
 
 type Section = {
   id: string;
@@ -17,14 +16,39 @@ const sections: Section[] = [
   { id: "contact", name: "Contact" },
 ];
 
+const DownloadButton = () => {
+  const base = import.meta.env.BASE_URL || "/";
+  return (
+    <div className="flex gap-4 items-center">
+      <a
+        href={`${base}Mohamed-Hussein-Software-Testing-Engineer.pdf`}
+        download
+        className="flex items-center rounded bg-primary text-white px-4 py-2 ml-2 gap-2 font-semibold shadow hover:scale-105 transition-transform hover:bg-primary/90"
+        style={{ fontFamily: "'Playfair Display', serif" }}
+      >
+        <ArrowDown size={18} /> Download Resume
+      </a>
+    </div>
+  );
+};
+
 const Navbar = () => {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
   const handleScroll = (id: string) => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
+  const toggleMode = () => {
+    setIsDarkMode(!isDarkMode);
+    document.documentElement.classList.toggle("dark", !isDarkMode); // Toggle dark mode
+  };
+
   return (
-    <nav className="fixed top-0 left-0 w-full z-20 bg-white/80 backdrop-blur border-b border-gray-200 px-4 py-2 flex items-center justify-between shadow-sm">
+    <nav
+      className={`fixed top-0 left-0 w-full z-20 ${isDarkMode ? "bg-gray-800" : "bg-white/80"} backdrop-blur border-b border-gray-200 px-4 py-2 flex items-center justify-between shadow-sm`}
+    >
       <div className="flex gap-4">
         {sections.map((s) => (
           <button
@@ -37,16 +61,17 @@ const Navbar = () => {
           </button>
         ))}
       </div>
-      <div className="flex gap-4 items-center">
-        <a
-          href="/Mohamed Hussein-Software Testing Engineer.pdf"
-          download
-          className="flex items-center rounded bg-primary text-white px-4 py-2 ml-2 gap-2 font-semibold shadow hover:scale-105 transition-transform hover:bg-primary/90"
-          style={{ fontFamily: "'Playfair Display', serif" }}
-        >
-          <ArrowDown size={18} /> Download Resume
-        </a>
-      </div>
+
+      {/* Dark Mode Toggle */}
+      <button
+        onClick={toggleMode}
+        className="p-2 text-sm font-medium text-gray-600 dark:text-gray-200"
+      >
+        {isDarkMode ? "Light Mode" : "Dark Mode"}
+      </button>
+
+      {/* Download Button */}
+      <DownloadButton />
     </nav>
   );
 };

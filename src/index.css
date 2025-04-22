@@ -50,52 +50,61 @@
 
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border;
+    /* Dark mode colors */
+    &.dark {
+      --background: 40 40 40;  /* Dark but not too harsh background */
+    --foreground: 224 223 220;  /* Light text for readability */
+    
+    /* Core dark mode adjustments */
+    color: #E0E0E0;  /* Light gray base text */
+    background-color: #2C2C2C;  /* Balanced dark background */
   }
 
-  body {
-    @apply bg-background text-foreground;
+  /* Base dark mode styles */
+  .dark body {
+    @apply bg-[#2C2C2C] text-[#E0E0E0];
+  }
+
+  /* Section backgrounds */
+  .dark .bg-white,
+  .dark .bg-gray-50,
+  .dark .bg-gray-100 {
+    @apply bg-[#2C2C2C];
+  }
+
+  /* Text color adjustments for better readability */
+  .dark .text-gray-600,
+  .dark .text-gray-700,
+  .dark .text-gray-800 {
+    @apply text-[#E0E0E0];
+  }
+
+  /* Muted text that should remain slightly dimmer */
+  .dark .text-gray-400,
+  .dark .text-gray-500 {
+    @apply text-[#A0A0A0];
+  }
+
+  /* Card and container backgrounds */
+  .dark .bg-gradient-to-r,
+  .dark .bg-gradient-to-b {
+    @apply from-[#333333] via-[#2C2C2C] to-[#2C2C2C];
+  }
+
+  /* Borders and separators */
+  .dark .border-gray-200,
+  .dark .border-gray-300 {
+    @apply border-[#404040];
+  }
+
+  /* Form elements */
+  .dark input,
+  .dark textarea {
+    @apply bg-[#333333] border-[#404040] text-[#E0E0E0];
+  }
+
+  /* Hover states */
+  .dark .hover\:bg-gray-100:hover {
+    @apply hover:bg-[#333333];
   }
 }

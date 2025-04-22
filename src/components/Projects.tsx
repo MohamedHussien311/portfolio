@@ -5,31 +5,32 @@ import React, { useState } from "react";
 const projects = [
   {
     title: "Magento E-Commerce Website",
-    img: "/magento.jpeg",
+    img: `${import.meta.env.BASE_URL}magento.jpeg`,
     link: "https://github.com/MohamedHussien311/MagentoEcommerceWebsite.git",
     desc: "Created test cases to cover several modules like Sign In, Login, products cart and checkout pages.",
     more: "Tools: Selenium WebDriver with Java, TestNG, POM Design Pattern, Allure Report for generating automation reports.",
   },
   {
     title: "Guru99 Banking System",
-    img: "/guru99.jpeg",
+    img: `${import.meta.env.BASE_URL}guru99.jpeg`,
     link: "https://github.com/MohamedHussien311/Guru99BankingProject.git",
     desc: "Performed manual and automation testing.",
     more: "Identified bugs and designed reports, Automated testing using Selenium with Java, POM design pattern, TestNG, and Allure report.",
   },
   {
     title: "ToDo application",
-    img: "/todo.png",
+    img: `${import.meta.env.BASE_URL}todo.png`,
     link: "https://github.com/MohamedHussien311/Test-a-Todo-Application..git",
     desc: "Performed manual testing to cover sign In, login and ToDo pages.",
   },
   {
     title: "NopCommerce Store",
-    img: "/nopcommerce.jpeg",
+    img: `${import.meta.env.BASE_URL}nopcommerce.jpeg`,
     link: "https://github.com",
     desc: "Performed Automation Testing with Selenium WebDriver and TestNG.",
   },
-  ];
+];
+
 
 const Projects = () => {
   const [showAll, setShowAll] = useState(false);

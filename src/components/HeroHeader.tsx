@@ -6,7 +6,7 @@ const HERO = {
   name: "Mohamed Hussein",
   title: "Software Testing Engineer",
   brief:
-    "I build modern, scalable web applications with a passion for clean code, beautiful design, and seamless user experiences.",
+    "I ensure your software is bulletproof—free of bugs, high-quality, and ready for users.",
   // photo removed, frame should be empty
 };
 
